@@ -1,6 +1,3 @@
-// index.js
-// where your node app starts
-
 // init project
 var express = require('express');
 var app = express();
@@ -17,12 +14,6 @@ app.use(express.static('public'));
 app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
-
-
-// your first API endpoint... 
-// app.get("/api/hello", function (req, res) {
-//   res.json({greeting: 'hello API'});
-// });
 
 app.get("/api", function (req, res) {
   res.json({
@@ -67,46 +58,7 @@ app.get("/api/:date", function (req, res) {
     }
   }
 });
-  
 
-// app.get("/api/:date", function (req, res) {
-//   let date_string = req.params.date;
-//   let unixTime = parseInt(date_string);
-//   if (date_string != undefined) {
-//     if (date_string.match("-") != null) {
-//       res.json({
-//         unix: Math.floor(new Date(date_string)).valueOf(),
-//         utc: new Date(date_string).toUTCString(),
-//       });
-//     } else {
-//       // let date_string = parseInt(req.params.date);
-//       let unixDate = parseInt(date_string, 10)
-//       let date = new Date(unixDate);
-//       res.json({
-//         unix: date.getTime(),
-//         utc: date.toUTCString(),
-//       });
-//     }      
-//   }
-// });
-//==============
-  // }
-  //   res.json({ 
-  //     error : "Invalid Date" 
-  //   })
-
-  // } else {
-  //   res.json({
-  //     unix: new Date(date_string).getTime(),
-  //     utc: new Date(date_string).toUTCString(),
-  // })
-
-// };
-
-// unix: Math.floor((new Date(date_string)).getTime()),
-// utc: new Date(date_string).toUTCString(),
-
-// listen for requests :)
 const port = process.env.PORT || 3000;
 var listener = app.listen(port, function () {
   console.log('Your app is listening on port ' + listener.address().port);
